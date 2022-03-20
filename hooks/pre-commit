@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+REPO_DIR="$(git rev-parse --show-toplevel)"
+HOOKS_DIR="${REPO_DIR}/.hooks"
+
+if [[ -x "${HOOKS_DIR}/pre-commit" ]]; then
+  . ${HOOKS_DIR}/pre-commit
+fi

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -- main master
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
+for PROTECTED_BRANCH in "$@"; do
+  if [[ "${CURRENT_BRANCH}" == "${PROTECTED_BRANCH}" ]]; then
+    echo "${CURRENT_BRANCH} is a protected branch"
+    exit 1
+  fi
+done
