@@ -24,6 +24,7 @@ esac
 
 cp -a ${GIT_CORE}/templates ${TEMPLATE_DIR}
 curl -fsSL https://raw.githubusercontent.com/pers0n4/global-git-hooks/main/hooks/pre-commit -o "${TEMPLATE_DIR}/hooks/pre-commit"
+chmod +x ${TEMPLATE_DIR}/hooks/pre-commit
 
 git config --global init.templatedir "${TEMPLATE_DIR}"
 
