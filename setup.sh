@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-TEMPLATE_DIR=~/.gittemplates
+TEMPLATE_DIR="~/.gittemplates"
 
 if [ -d "${TEMPLATE_DIR}" ]; then
   echo -e "\033[0;31m[ERROR]\033[0m Custom git templates are already exist"
@@ -23,9 +23,9 @@ cygwin | msys)
 esac
 
 cp -a ${GIT_CORE}/templates ${TEMPLATE_DIR}
-curl -fsSL https://raw.githubusercontent.com/pers0n4/global-git-hooks/main/hooks/pre-commit -o "${TEMPLATE_DIR}/hooks/pre-commit"
-chmod +x ${TEMPLATE_DIR}/hooks/pre-commit
+git config --global init.templatedir ${TEMPLATE_DIR}
 
-git config --global init.templatedir "${TEMPLATE_DIR}"
+curl -fsSL https://raw.githubusercontent.com/pers0n4/global-git-hooks/main/hooks/pre-commit -o ${TEMPLATE_DIR}/hooks/pre-commit
+chmod +x ${TEMPLATE_DIR}/hooks/pre-commit
 
 echo -e "\033[0;36m[INFO]\033[0m Custom git templates are installed"
