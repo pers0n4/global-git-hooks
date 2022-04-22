@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-TEMPLATE_DIR="~/.gittemplates"
+TEMPLATE_DIR=~/.gittemplates
 
 if [ -d "${TEMPLATE_DIR}" ]; then
   echo -e "\033[0;31m[ERROR]\033[0m Custom git templates are already exist"
